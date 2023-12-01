@@ -89,15 +89,32 @@ function stickyCase(string) {
 //   leetspeak('javascript');
 //   => 'j4v45cr1p7'
 function leetspeak(string) {
-  switch (currentLetter) {
-    case 'a':
-      //
-      break;
-    
-    default:
-      //add currentLetter to newString
-      
+  let newString = '';
+  for(let i = 0; i < string.length; i++) {
+    switch (string[i]) {
+      case 'a':
+        newString += '4';
+        break;
+      case 'e':
+        newString += '3';
+        break;
+      case 'i':
+        newString += '1';
+        break;
+      case 'o':
+        newString += '0';
+        break;
+      case 's':
+        newString += '5';
+        break;
+      case 't':
+        newString += '7';
+        break;
+      default:
+        newString += string[i];
+    }
   }
+  return newString;
 }
 
 export {
