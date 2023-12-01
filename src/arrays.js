@@ -19,7 +19,7 @@ function greaterThanTen(numbers) {
 function bWords(words) {
   const bWords = [];
   for(const word of words) {
-    wordFirst = word.charAt(0);
+    let wordFirst = word.charAt(0);
     if( wordFirst.toUpperCase() === 'B'){
       bWords.push(word);
     }
@@ -90,10 +90,18 @@ function findWordsStartingWith(words, letter) {
 //   smallestNItems([1, 30, 4, 21, 100000], 3);
 //   => [21, 4, 1]
 function smallestNItems(items, n) {
-  const smallest = [];
-  for(let i = 0; i < items.length; i++) {
-    if(items[i])
+  const smallList = [];
+  smallList.push(items[0]);
+  console.log(smallList);
+  for(let i = 1; i < items.length; i++) {
+    for(let s = 0; s < smallList.length; s++){
+      if(Number(items[i]) > Number(smallList[s])) {
+        smallList.splice(s, 1, items[i]);
+        break;
+      } 
+    }
   }
+  return smallList.slice(0, 2) //only return 'n' items
 }
 
 // Search for a value in the array and return its index. If the value appears
@@ -102,14 +110,28 @@ function smallestNItems(items, n) {
 // Ex.:
 //   findIndex(['a', 'b', 'c', 'a', 'b', 'c'], 'c');
 //   => 2
-function findIndex(items, value) {}
+function findIndex(items, value) {
+  for(let i = 0; i < items.length; i++) {
+    if (items[i] === value) {
+      return i;
+    }
+  }
+}
 
 // Given a start number and stop number, return a new array containing all the numbers
 // between the start and stop number.
 // Ex.:
 //   range(1, 5);
 //   => [1, 2, 3, 4, 5]
-function range(start, stop) {}
+function range(start, stop) {
+  const numberList = [];
+  let i = start;
+  while (i <= stop) {
+    numberList.push(i);
+    i++;
+  }
+  return numberList;
+}
 
 export {
   bWords,
