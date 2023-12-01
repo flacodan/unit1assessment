@@ -57,7 +57,15 @@ function itemsWithLength(items, length) {
 // Ex.:
 //   everyOtherItem(['a', 'b', 'c', 'd', 'e']);
 //   => ['a', 'c', 'e']
-function everyOtherItem(items) {}
+function everyOtherItem(items) {
+  const oddItems = [];
+  for(let i = 0; i < items.length; i++) {
+    if(i%2 === 0) {
+      oddItems.push(items[i]);
+    }
+  }
+  return oddItems;
+}
 
 // Given a list of words and a letter, return the indexes of the words that
 // start with that letter. You can assume that the words and letter will always
@@ -65,7 +73,15 @@ function everyOtherItem(items) {}
 // Ex.:
 //   findWordsStartingWith(['apple', 'banana', 'kiwi', 'pear', 'bacon'], 'b');
 //   => [1, 4]
-function findWordsStartingWith(words, letter) {}
+function findWordsStartingWith(words, letter) {
+  const wordIndex = [];
+  for(let i = 0; i < words.length; i++) {
+    if (words[i].charAt(0) === letter) {
+      wordIndex.push(i);
+    }
+  }
+  return wordIndex;
+}
 
 // Return the `n` smallest values in the array in descending order (largest
 // numbers first). Assume that `n` will always be less than the length of the
@@ -73,7 +89,12 @@ function findWordsStartingWith(words, letter) {}
 // Ex.:
 //   smallestNItems([1, 30, 4, 21, 100000], 3);
 //   => [21, 4, 1]
-function smallestNItems(items, n) {}
+function smallestNItems(items, n) {
+  const smallest = [];
+  for(let i = 0; i < items.length; i++) {
+    if(items[i])
+  }
+}
 
 // Search for a value in the array and return its index. If the value appears
 // more than once, return the index of the *FIRST* occurrence of the value. If
