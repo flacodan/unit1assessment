@@ -2,26 +2,56 @@
 // Ex.:
 //   greaterThanTen([1, 2, 3, 11, 12, 13]);
 //   => [11, 12, 13]
-function greaterThanTen(numbers) {}
+function greaterThanTen(numbers) {
+  let numsOverTen = [];
+  for(const currentNum of numbers) {
+    if (currentNum > 10) {
+      numsOverTen.push(currentNum);
+    }
+  }
+  return numsOverTen;
+}
 
 // Given an array of strings, return all words that start with 'b' or 'B'.
 // Ex.:
 //   bWords(['banana', 'orange', 'apple', 'Bonobo', 'kiwi', 'pear']);
 //   => ['banana', 'Bonobo]
-function bWords(words) {}
+function bWords(words) {
+  const bWords = [];
+  for(const word of words) {
+    wordFirst = word.charAt(0);
+    if( wordFirst.toUpperCase() === 'B'){
+      bWords.push(word);
+    }
+  }
+  return bWords;
+}
 
 // Add all the elements from additionalItems to the end of originalArray.
 // Return the originalArray..
 // Ex.:
 //  extend([1, 2, 3], [4, 5, 6]);
 //  => [1, 2, 3, 4, 5, 6]
-function extend(originalArray, additionalItems) {}
+function extend(originalArray, additionalItems) {
+  for(let i = 0; i < additionalItems.length; i++) {
+    originalArray.push(additionalItems[i]);
+  }
+  return originalArray;
+}
 
 // Return an array of all items with the given length.
 // Ex.:
 //   itemsWithLength(['a', 'bbb', 'cccc', 'dddddd', 'eee'], 3);
 //   => ['bbb', 'eee']
-function itemsWithLength(items, length) {}
+function itemsWithLength(items, length) {
+  const result = [];
+  for(let i = 0; i < items.length; i++) {
+    if(items[i].length === length) {
+      result.push(items[i]);
+    }
+  }
+  return result;
+}
 
 // Return an array with every other element from the input array (start with index 0).
 // Ex.:
