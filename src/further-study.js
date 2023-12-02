@@ -10,9 +10,14 @@ function commonStrings(array1, array2) {
     const matchedStrings = [];
     for (let word of array1) {
         if (array2.includes(word)) {
+          if (matchedStrings.includes(word)) {
+            //skip
+          } else {
             matchedStrings.push(word);
+          }
         }
     }
+  console.log(matchedStrings);
     return matchedStrings;
 }
 
@@ -49,12 +54,11 @@ function divisibleByEither(a, b, c) {
 //   => '4s3ba'
 function compressString(string) {
     let newString = '';
-    let currChar = string[0];
-    let prevChar = '';
+    let currChar = string[1];
+    let prevChar = string[0];
     let currCount = 1;
   
     for (let i = 1; i < string.length; i++) {
-      prevChar = currChar;
       currChar = string[i];
       if (currChar === prevChar) {
         currCount++;
@@ -63,11 +67,16 @@ function compressString(string) {
           newString += currCount + prevChar;
           currCount = 1;
         } else {
-          newString += currChar;
+          newString += prevChar;
         }
       }
+      prevChar = currChar;
     }
-    console.log(newString);
+    if (currCount > 1) {
+      newString += currCount + prevChar;
+    } else {
+      newString += currChar;
+    }
     return newString;
   }
 
