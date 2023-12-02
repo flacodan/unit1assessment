@@ -92,16 +92,20 @@ function findWordsStartingWith(words, letter) {
 function smallestNItems(items, n) {
   const smallList = [];
   smallList.push(items[0]);
-  console.log(smallList);
   for(let i = 1; i < items.length; i++) {
-    for(let s = 0; s < smallList.length; s++){
-      if(Number(items[i]) > Number(smallList[s])) {
-        smallList.splice(s, 1, items[i]);
+    for(let s = 0; s <= smallList.length; s++){
+     if((items[i] >= smallList[s]) || (s===smallList.length)) {
+        smallList.splice(s,0,items[i])
         break;
-      } 
+      }
     }
   }
-  return smallList.slice(0, 2) //only return 'n' items
+  let sLen = smallList.length;
+  if(n===0){
+    return [];
+  } else {
+    return smallList.slice(sLen - n);
+  }
 }
 
 // Search for a value in the array and return its index. If the value appears
